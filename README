@@ -1,0 +1,5 @@
+Jogo BomberMam escrito em C
+
+-Arquivo "jogo.cpp" (ou "jogo.c" dependendo da versão) -> arquivo principal.
+-Pasta headers -> arquivos com includes que tentam simular função do windows nos sistemas UNIX.
+-Arquivo "jogo" -> Arquivo compilado (testado em Ubuntu 64-bit).
