@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <iostream>
 #include <stdio.h>
 #include "headers/getch_getche.h" //funcao getche e getch do windows
 #include <string.h>
