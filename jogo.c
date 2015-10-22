@@ -47,7 +47,7 @@ void move_personagem(){
 }
 
 int main(){
-	std::cout << "asddgsfdfbnklsfajjjjjjjcfhdrsghnadscghkjdcghjsjghsaghjfcj";//suja tela
+	printf("asddgsfdfbnklsfajjjjjjjcfhdrsghnadscghkjdcghjsjghsaghjfcj");//suja tela
 	restart();
 	return 0;
 }
