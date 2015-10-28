@@ -131,7 +131,7 @@ void ler_tecla_especial(char *tecla){ //OK
 	}
 }
 
-void bombas_ctrl(int nb, int *pos_personagem, int *bombas_no_mapa/*, int *vidas*/){ //OK
+void bombas_ctrl(int nb, int *pos_personagem, int *bombas_no_mapa, int *vidas){ //OK
 	int i = 0;
 	float timer;
 	for(i = 0; i < nb; i++){
@@ -162,7 +162,7 @@ void bombas_ctrl(int nb, int *pos_personagem, int *bombas_no_mapa/*, int *vidas*
 						
 						gotoxy(15, 50);
 						puts("MORREU FILHA DA PUTA");
-						//*vidas -= 1;
+						*vidas -= 1;
 					}
 			}
 		}
@@ -211,7 +211,7 @@ void move_personagem(int *pos, int *fase, int *paredes, char *tecla){ //OK
 			break;
 	}
 }
-
+ 
 int add_bomba(int nb, int *pos_personagem, int *b_no_mapa){ //aparentemente ok
 	int i;
 	if(nb <= *b_no_mapa) //limite de bombas atingido
@@ -228,7 +228,7 @@ int add_bomba(int nb, int *pos_personagem, int *b_no_mapa){ //aparentemente ok
 	return 0;
 }
 
-/*void mostra_ui(int fase, int limite_bombas, int vidas, clock_t *relogio){
+/*void mostra_ui(int fase, int limite_bombas, int vidas, clock_t *relogio){ //Não funciona
 	gotoxy(INICIO_INTERFACE_LINHA, 2);
 	printf("Limite de Bombas: %d Fase: %d Vidas: %d Clock: %ld", limite_bombas, fase, vidas, *relogio);
 }*/
@@ -242,7 +242,7 @@ int main(){
 	int fase_atual = 2;
 	int bombas_no_mapa;
 	char tecla;
-	//int vidas = VIDAS;
+	int vidas = 10;// = VIDAS;
 	//clock_t game_start = clock();
 	memset(mapa, ' ', sizeof(mapa)-1); //limpa a matriz do mapa
 	monta_mapa(); //gera as paredes fisicas e limites laterais
@@ -267,7 +267,8 @@ int main(){
 		//mostra_ui(fase_atual, num_bombas[fase_atual], vidas, &game_start);
 		mostra_mapa(pos_personagem);
 		limpa_tela(0);
-		bombas_ctrl(num_bombas[fase_atual], pos_personagem, &bombas_no_mapa/*, &vidas*/); //controla as bombas ativas
+		//usleep(100000);
+		bombas_ctrl(num_bombas[fase_atual], pos_personagem, &bombas_no_mapa, &vidas); //controla as bombas ativas
 		usleep(70000); //"dorme" por x microsegundos. Evita de processar a tela várias vezes sem necessidade
 	}
 	return 0;
